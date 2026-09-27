@@ -21,9 +21,11 @@ Players also fight bosses in Bounty Hunt. The highest clear (win) is 3 stars:
 - one for finishing with at least 50% HP
 - and one for clearing in under 90 seconds.
 
-## The data
+## The data (csv files)
 | Table	| Rows | What it holds |
 |---|---|---|
-players	| 200	| player_id, username, region, signup_date |
-hunts	| 2,000 |	one Bounty Hunt run — wanderer, stage, companion, cleared, hp_left_pct, clear_secs, stars |
-wishes |	~4,700 |	one gacha pull — rarity, pool, currency, wish_number |
+[`players`](data/players.csv)	| 200	| player_id, username, region, join_date |
+[`hunts`](data/hunts.csv)	| 2,000 |	 a single Bounty Hunt attempt —> wanderer, stage, companion, cleared, hp_left_pct, clear_secs, stars |
+[`wishes`](data/wishes.csv) |	4,733 |	one wish per player —> rarity, pool, currency, wish_number |
+Note: each row in hunts is one attempt at a Bounty Hunt stage — one fight, by one player.
+All three tables are linked by player_id.
