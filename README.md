@@ -61,7 +61,7 @@ Across all wishes, the observed 5-star rate was 1.52% — below the game's publi
 
 Heavy pullers land almost exactly on the published figure. Everyone else sits at the base rate, because pity never activates for them. The advertised number describes the whales, not the median player.
 
-## Report in fixing bugs/issues
+# Report in fixing bugs/issues
 A sorting step broke the pity sequence.
 
 Querying the gaps between 5-stars turned up a maximum of 97 wishes — impossible, since hard pity caps it at 70. Three rows violated the limit.
@@ -70,7 +70,7 @@ The cause wasn't the pity simulation. Verifying the function in isolation gave a
 
 The fix was to stop sorting the rows and sort only the dates within each player, so wish 1 is both the first pull and the earliest date. After the fix, the maximum gap dropped to 68 — and R and MySQL returned the same number independently.
 
-## Limitations/ Disclaimers 
+# Limitations/ Disclaimers 
 - Pity is tracked per player, not per pool: In the real game, wish pools of the same type share a pity counter separately. This model uses one counter per player.
 - No difficulty relationship: Wanderer and stage are drawn independently of whether a hunt is cleared, so comparative queries like "which boss is hardest" return noise. Only volume and distribution queries are included for hunts for that reason.
 - Companion choice is uniform. Players have no favourite, so companion-level comparisons aren't meaningful.
@@ -78,9 +78,9 @@ The fix was to stop sorting the rows and sort only the dates within each player,
 - This dataset is very simplified for querying purposes.
 
 # Files
-[gaming_data.R](love_and_deepspace/R/gaming_data.R) — generates all three tables
-[data](love_and_deepspace/data) — the exported CSVs
-[queries.sql](love_and_deepspace/SQL/queries.sql) — every query, with comments on what each one answers
+- [gaming_data.R](love_and_deepspace/R/gaming_data.R) — generates all three tables
+- [data](love_and_deepspace/data) — the exported CSVs
+- [queries.sql](love_and_deepspace/SQL/queries.sql) — every query, with comments on what each one answers
 
-## Tools
+# Tools
 R (tidyverse, ids, randomNames), MySQL 8.0, MySQL Workbench
