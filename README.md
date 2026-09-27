@@ -70,9 +70,17 @@ The cause wasn't the pity simulation. Verifying the function in isolation gave a
 
 The fix was to stop sorting the rows and sort only the dates within each player, so wish 1 is both the first pull and the earliest date. After the fix, the maximum gap dropped to 68 — and R and MySQL returned the same number independently.
 
-## Limitations
+## Limitations/ Disclaimers 
 - Pity is tracked per player, not per pool: In the real game, wish pools of the same type share a pity counter separately. This model uses one counter per player.
 - No difficulty relationship: Wanderer and stage are drawn independently of whether a hunt is cleared, so comparative queries like "which boss is hardest" return noise. Only volume and distribution queries are included for hunts for that reason.
 - Companion choice is uniform. Players have no favourite, so companion-level comparisons aren't meaningful.
 - Shards, Heartsand, Blessings, and Galaxy Explorer are out of scope. (These are other things in the game that I did not included due to it's complexity and dynamic)
-- This dataset is very simplified for querying purposes. 
+- This dataset is very simplified for querying purposes.
+
+# Files
+[gaming_data.R](love_and_deepspace/R/gaming_data.R) — generates all three tables
+[data](love_and_deepspace/data) — the exported CSVs
+[queries.sql](love_and_deepspace/SQL/queries.sql) — every query, with comments on what each one answers
+
+## Tools
+R (tidyverse, ids, randomNames), MySQL 8.0, MySQL Workbench
