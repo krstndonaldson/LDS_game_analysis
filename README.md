@@ -58,3 +58,21 @@ Across all wishes, the observed 5-star rate was 1.52% — below the game's publi
 |---|---|---|
 | 60+ wishes | 17 (8.5%) | 2.09% |
 | Under 60 wishes | 183 (91.5%) | 1.10% |
+
+Heavy pullers land almost exactly on the published figure. Everyone else sits at the base rate, because pity never activates for them. The advertised number describes the whales, not the median player.
+
+## Report in fixing bugs/issues
+A sorting step broke the pity sequence.
+
+Querying the gaps between 5-stars turned up a maximum of 97 wishes — impossible, since hard pity caps it at 70. Three rows violated the limit.
+
+The cause wasn't the pity simulation. Verifying the function in isolation gave a maximum gap of 63, within the cap. The problem was a later step: wish dates were generated randomly, then the rows were sorted by date and renumbered. The rarities kept their original sequence, but the numbers describing that sequence were reassigned to different rows.
+
+The fix was to stop sorting the rows and sort only the dates within each player, so wish 1 is both the first pull and the earliest date. After the fix, the maximum gap dropped to 68 — and R and MySQL returned the same number independently.
+
+## Limitations
+- Pity is tracked per player, not per pool: In the real game, wish pools of the same type share a pity counter separately. This model uses one counter per player.
+- No difficulty relationship: Wanderer and stage are drawn independently of whether a hunt is cleared, so comparative queries like "which boss is hardest" return noise. Only volume and distribution queries are included for hunts for that reason.
+- Companion choice is uniform. Players have no favourite, so companion-level comparisons aren't meaningful.
+- Shards, Heartsand, Blessings, and Galaxy Explorer are out of scope. (These are other things in the game that I did not included due to it's complexity and dynamic)
+- This dataset is very simplified for querying purposes. 
