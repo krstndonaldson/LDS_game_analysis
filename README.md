@@ -29,4 +29,17 @@ Players also fight bosses in Bounty Hunt. The highest clear (win) is 3 stars:
 [`wishes`](love_and_deepspace/data/wishes.csv) |	4,733 |	one wish per player —> rarity, pool, currency, wish_number |
 
 Note: each row in hunts is one attempt at a Bounty Hunt stage — one fight, by one player.
+
 All three tables are linked by player_id.
+
+## How it was built
+
+Everything is generated in [`R/gaming_data.R`](love_and_deepspace/R/gaming_data.R) with set.seed() so the dataset is reproducible.
+
+Considerations made when building this data:
+
+Activity can't predate signup. A helper function takes each player's signup date and generates event dates on or after it, so nobody has a hunt recorded before they joined.
+
+Wish (pull) counts follow a whale distribution. Real gacha spending is long-tailed — most players pull a little, a few pull enormously — so pull counts are drawn from a log-normal distribution rather than an even spread. The median player makes about 12 wishes; the heaviest hit the 400 cap.
+
+Pity is actually simulated. Rather than drawing rarities independently at the published rates, each player's wishes are generated in sequence with counters tracking how long they've gone without each tier. The 5-star chance stays at 1% until wish 60, then climbs 10 points per wish to a guaranteed hit at 70.
