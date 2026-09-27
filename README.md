@@ -24,9 +24,9 @@ Players also fight bosses in Bounty Hunt. The highest clear (win) is 3 stars:
 ## The data (csv files)
 | Table	| Rows | What it holds |
 |---|---|---|
-[`players`](data/players.csv)	| 200	| player_id, username, region, join_date |
-[`hunts`](data/hunts.csv)	| 2,000 |	 a single Bounty Hunt attempt —> wanderer, stage, companion, cleared, hp_left_pct, clear_secs, stars |
-[`wishes`](data/wishes.csv) |	4,733 |	one wish per player —> rarity, pool, currency, wish_number |
+[`players`](love_and_deepspace/data/players.csv)	| 200	| player_id, username, region, join_date |
+[`hunts`](love_and_deepspace/data/hunts.csv)	| 2,000 |	 a single Bounty Hunt attempt —> wanderer, stage, companion, cleared, hp_left_pct, clear_secs, stars |
+[`wishes`](love_and_deepspace/data/wishes.csv) |	4,733 |	one wish per player —> rarity, pool, currency, wish_number |
 
 Note: each row in hunts is one attempt at a Bounty Hunt stage — one fight, by one player.
 All three tables are linked by player_id.
