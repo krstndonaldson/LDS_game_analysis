@@ -83,4 +83,4 @@ The fix was to stop sorting the rows and sort only the dates within each player,
 - [queries.sql](love_and_deepspace/SQL/queries.sql) — every query, with comments on what each one answers
 
 # Tools
-R (tidyverse, ids, randomNames), MySQL 8.0, MySQL Workbench
+R packages (tidyverse, randomNames), MySQL 8.0, MySQL Workbench
