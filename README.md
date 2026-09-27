@@ -59,6 +59,8 @@ Across all wishes, the observed 5-star rate was 1.52% — below the game's publi
 | 60+ wishes | 17 (8.5%) | 2.09% |
 | Under 60 wishes | 183 (91.5%) | 1.10% |
 
+![Figure 1.0 showing how pity works in favour of more wishes (pulls)](love_and_deepspace/five_star_rate.png)
+
 Heavy pullers land almost exactly on the published figure. Everyone else sits at the base rate, because pity never activates for them. The advertised number describes the whales, not the median player.
 
 # Report in fixing bugs/issues
