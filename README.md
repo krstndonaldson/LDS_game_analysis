@@ -74,10 +74,10 @@ The cause wasn't the pity simulation. Verifying the function in isolation gave a
 The fix was to stop sorting the rows and sort only the dates within each player, so wish 1 is both the first pull and the earliest date. After the fix, the maximum gap dropped to 68 — and R and MySQL returned the same number independently.
 
 # Interactive Dashboard
-![Image](love_and_deepspace/powerbi/dashboard)
+![Image](love_and_deepspace/powerbi/dashboard.png)
 An interactive view of the same three tables. It shows total players, the hunt clear rate, how wishes split across pools and rarity tiers, the top ten wishers, and the 5-star rate for heavy versus light wishers side by side.
 
-Selecting a region, a wish volume group, or a player from the top-ten table filters every other visual to that selection. Click here to try [LDS DASHBOARD](love_and_deepspace/powerbi/LDS_dashboard)
+Selecting a region, a wish volume group, or a player from the top-ten table filters every other visual to that selection. Click here to try [LDS DASHBOARD](love_and_deepspace/powerbi/LDS_Dashboard.pbix)
 
 # Limitations/ Disclaimers 
 - Pity is tracked per player, not per pool: In the real game, wish pools of the same type share a pity counter separately. This model uses one counter per player.
@@ -91,7 +91,7 @@ Selecting a region, a wish volume group, or a player from the top-ten table filt
 - [gaming_data.R](love_and_deepspace/R/gaming_data.R) — generates all three tables
 - [data](love_and_deepspace/data) — the exported CSVs
 - [queries.sql](love_and_deepspace/SQL/queries.sql) — every query, with comments on what each one answers
-- [LDS_dashboard.pbix](love_and_deepspace/powerbi/LDS_dashboard)
+- [LDS_dashboard.pbix](love_and_deepspace/powerbi/LDS_Dashboard.pbix)
 
 # Tools
 R packages (tidyverse, randomNames), MySQL 8.0, MySQL Workbench, Power Bi
