@@ -73,17 +73,25 @@ The cause wasn't the pity simulation. Verifying the function in isolation gave a
 
 The fix was to stop sorting the rows and sort only the dates within each player, so wish 1 is both the first pull and the earliest date. After the fix, the maximum gap dropped to 68 — and R and MySQL returned the same number independently.
 
+# Interactive Dashboard
+![Image](love_and_deepspace/powerbi/dashboard)
+An interactive view of the same three tables. It shows total players, the hunt clear rate, how wishes split across pools and rarity tiers, the top ten wishers, and the 5-star rate for heavy versus light wishers side by side.
+
+Selecting a region, a wish volume group, or a player from the top-ten table filters every other visual to that selection. Click here to try [LDS DASHBOARD](love_and_deepspace/powerbi/LDS_dashboard)
+
 # Limitations/ Disclaimers 
 - Pity is tracked per player, not per pool: In the real game, wish pools of the same type share a pity counter separately. This model uses one counter per player.
 - No difficulty relationship: Wanderer and stage are drawn independently of whether a hunt is cleared, so comparative queries like "which boss is hardest" return noise. Only volume and distribution queries are included for hunts for that reason.
 - Companion choice is uniform. Players have no favourite, so companion-level comparisons aren't meaningful.
 - Shards, Heartsand, Blessings, and Galaxy Explorer are out of scope. (These are other things in the game that I did not included due to it's complexity and dynamic)
 - This dataset is very simplified for querying purposes.
-
+- The dashboard's region filter demonstrates interaction, not a finding. Region was sampled independently of every other variable, so filtering by it shows only random variation.
+  
 # Files
 - [gaming_data.R](love_and_deepspace/R/gaming_data.R) — generates all three tables
 - [data](love_and_deepspace/data) — the exported CSVs
 - [queries.sql](love_and_deepspace/SQL/queries.sql) — every query, with comments on what each one answers
+- [LDS_dashboard.pbix](love_and_deepspace/powerbi/LDS_dashboard)
 
 # Tools
-R packages (tidyverse, randomNames), MySQL 8.0, MySQL Workbench
+R packages (tidyverse, randomNames), MySQL 8.0, MySQL Workbench, Power Bi
