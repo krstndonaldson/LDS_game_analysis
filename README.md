@@ -83,7 +83,7 @@ Selecting a region, a wish volume group, or a player from the top-ten table filt
 - Pity is tracked per player, not per pool: In the real game, wish pools of the same type share a pity counter separately. This model uses one counter per player.
 - No difficulty relationship: Wanderer and stage are drawn independently of whether a hunt is cleared, so comparative queries like "which boss is hardest" return noise. Only volume and distribution queries are included for hunts for that reason.
 - Companion choice is uniform. Players have no favourite, so companion-level comparisons aren't meaningful.
-- Shards, Heartsand, Blessings, and Galaxy Explorer are out of scope. (These are other things in the game that I did not included due to it's complexity and dynamic)
+- Shards, Heartsand, Blessings, and Galaxy Explorer are out of scope. (These are other things in the game that I did not include due to it's complexity and dynamic)
 - This dataset is very simplified for querying purposes.
 - The dashboard's region filter demonstrates interaction, not a finding. Region was sampled independently of every other variable, so filtering by it shows only random variation.
   
@@ -94,4 +94,4 @@ Selecting a region, a wish volume group, or a player from the top-ten table filt
 - [LDS_dashboard.pbix](love_and_deepspace/powerbi/LDS_Dashboard.pbix) — interactive dashboard 
 
 # Tools
-R packages (tidyverse, randomNames), MySQL 8.0, MySQL Workbench, Power Bi
+R packages (tidyverse, randomNames), MySQL 8.0, MySQL Workbench, Power BI
